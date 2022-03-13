@@ -1,6 +1,6 @@
 INSERT INTO
-  users (user_id, map_id)
+  favourites (user_id, map_id)
 VALUES
   (2, 1),
-  (8, 2),
-  (6, 3);
+  (3, 2),
+  (1, 3);
