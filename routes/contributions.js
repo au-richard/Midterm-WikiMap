@@ -7,11 +7,12 @@ module.exports = (db) => {
     const userID = req.query.userID;
     // console.log("Req Query and Body", req.query, req.body);
     // maps.title AS title maps.latitude AS latitude maps.longitude AS longtiude
-    db.query(`SELECT * FROM contributions JOIN users ON users.id = contributions.user_id JOIN maps ON maps.id = contributions.map_id JOIN markers ON maps.id = markers.map_id WHERE contributions.user_id = $1;`, [userID])
+    db.query(`SELECT * FROM contributions JOIN users ON users.id = contributions.user_id JOIN maps ON maps.id = contributions.map_id WHERE contributions.user_id = $1;`, [userID])
       .then(data => {
         const contributions = data.rows;
+        const markers = data.rows;
         console.log("contributions", contributions);
-        res.render("contributions", { contributions });
+        res.render("contributions", { contributions, markers });
       })
       .catch(err => {
         res
