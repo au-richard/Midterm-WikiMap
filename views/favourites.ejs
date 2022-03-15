@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/favourites.css" type="text/css" />
   <script type="text/javascript" src="/routes/favourites.js"></script>
 
@@ -24,18 +25,14 @@
       </h5>
       <section id="favourite-list">
         <% for(let fave of favourites) { %>
-          <table class="favourites-table">
-            <tr>
-              <td>
-                <%= fave.title %>
-              </td>
-              <td>
-                <form method="POST" action="/routes/favourites/<%= fave %>/delete">
-                  <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-              </td>
-            </tr>
-          </table>
+          <div class="favourites-table">
+            <h5>
+              <%= fave.title %>
+            </h5>
+            <form method="POST" action="/routes/favourites/<%= fave %>/delete">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
           <% } %>
       </section>
     </main>
