@@ -29,8 +29,8 @@
             <h5>
               <%= fave.title %>
             </h5>
-            <form method="POST" action="/routes/favourites/<%= fave %>/delete">
-              <button type="submit" class="btn btn-danger">Delete</button>
+            <form method="POST" action="/favourites/<%= fave.id %>/delete">
+              <button id="delete-favourite" type="submit" class="btn btn-danger">Delete</button>
             </form>
           </div>
           <% } %>
