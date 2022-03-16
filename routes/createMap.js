@@ -9,22 +9,24 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    console.log("req body", req.body);
     // req.query only temporary test (typing api id in address bar) http://localhost:8080/api/favourites?userID=3
     const userID = req.session["user_id"];
 
     console.log("User ID", userID);
     // const title = req.
     // console.log("Req Query and Body", req.query, req.body);
-    console.log("req body", req.body);
-    // db.query(`INSERT INTO maps (title, user_id, latitude, longitude) VALUES ($1, $2, $3, $4)`, [userID])
-    //   .then(data => {
 
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
+    db.query(`INSERT INTO maps (title, user_id, latitude, longitude) VALUES ($1, $2, $3, $4)`, [req.body.title, userID, req.body.latitude, req.body.longitude])
+      .then(data => {
+        res.redirect("/createMap");
+      })
+      .catch(err => {
+        console.log("res error", err.message);
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
   return router;
 };
