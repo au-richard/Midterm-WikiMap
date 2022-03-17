@@ -18,7 +18,6 @@ module.exports = (db) => {
       });
   });
 
-
   router.post("/:id/delete", (req, res) => {
     const mapID = req.params.id;
     console.log("map ID", mapID);
