@@ -20,36 +20,44 @@
 <body>
   <%- include('partials/_header') %>
     <main>
-      <h1>My Contributions</h1>
-      <h5>Total Number of Contributions: <%= contributions.length %>
+
       </h5>
       <section id="contribution-list">
+        <div class="contributions-header">
+          <h1>My Contributions</h1>
+          <h5 id="num-contributions">Total Number of Contributions: <%= contributions.length %>
+        </div>
+        <div class="maps-contributed-to">
+          <u>
+            <h3>Map Contributed To</h3>
+          </u>
+        </div>
+        <!-- <table>
+          <thead>
+            <u>
+              <th class="left-space">Map Contributed To</th>
+            </u>
+          </thead>
+          <tbody> -->
         <% for(let contrib of contributions) { %>
-          <table>
-            <thead>
-              <th>Map ID</th>
-              <th>Map Name</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <%= contrib.map_id %>
-                </td>
-                <td>
-                  <%= contrib.title %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- <div class="contributions-table">
+          <div class="contributions-table">
             <h5>
-              <%= contrib.map_id %>
+              <!-- nav-item nav-link -->
+              <a class="nav-item nav-link" href=" ">
+                <%= contrib.title %>
+              </a>
             </h5>
-            <h5>
-              <%= contrib.title %>
-            </h5>
-          </div> -->
+          </div>
+          <!-- <tr>
+                <td>
+                  <a class="nav-item nav-link" href=" ">
+                    <%= contrib.title %>
+                  </a>
+                </td>
+              </tr> -->
           <% } %>
+            </tbody>
+            </table>
       </section>
     </main>
 </body>

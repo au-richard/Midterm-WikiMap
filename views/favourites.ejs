@@ -20,14 +20,18 @@
 <body>
   <%- include('partials/_header') %>
     <main>
-      <h1>My Favourites</h1>
-      <h5>Total Number of Favourites: <%= favourites.length %>
-      </h5>
       <section id="favourite-list">
+        <div class="favourites-header">
+          <h1>My Favourites</h1>
+          <h5>Total Number of Favourites: <%= favourites.length %>
+          </h5>
+        </div>
         <% for(let fave of favourites) { %>
           <div class="favourites-table">
             <h5>
-              <%= fave.title %>
+              <a class="nav-item nav-link" href=" ">
+                <%= fave.title %>
+              </a>
             </h5>
             <form method="POST" action="/favourites/<%= fave.id %>/delete">
               <button id="delete-favourite" type="submit" class="btn btn-danger">Delete</button>
