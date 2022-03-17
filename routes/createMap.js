@@ -10,7 +10,6 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     console.log("req body", req.body);
-    // req.query only temporary test (typing api id in address bar) http://localhost:8080/api/favourites?userID=3
     const userID = req.session["user_id"];
 
     console.log("User ID", userID);
