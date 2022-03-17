@@ -3,9 +3,29 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
 }
 
+.contributions-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+
+#num-contributions {
+  margin-top: 0.5em;
+}
+
+.maps-contributed-to {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .contributions-table {
   display: flex;
   // align-items: center;
-  align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
+
+
