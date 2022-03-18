@@ -5,7 +5,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const userID = req.session["user_id"];
     // JOIN markers ON markers.user_id = contributions.user_id
-    db.query(`SELECT maps.title, contributions.map_id FROM contributions JOIN maps ON maps.id = contributions.map_id WHERE contributions.user_id = $1;`, [userID])
+    db.query(`SELECT maps.title, contributions.map_id FROM contributions JOIN maps ON maps.id = contributions.map_id WHERE contributions.user_id = $1 AND maps.active_map IS TRUE;`, [userID])
       .then(data => {
         const contributions = data.rows;
         console.log("contributions", contributions);

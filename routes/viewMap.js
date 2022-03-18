@@ -33,11 +33,11 @@ module.exports = (db) => {
     console.log("mapID", mapID);
     console.log("userID", userID);
 
-    db.query(`UPDATE maps FROM maps SET active_map = FALSE WHERE id = $1;`,[mapID])
+    db.query(`UPDATE maps SET active_map = FALSE WHERE id = $1;`,[mapID])
       .then(data => {
         const maps = data.rows;
         console.log(maps);
-        res.redirect("mainpage");
+        res.redirect("/mainpage");
       })
       .catch(err => {
         res
