@@ -8,6 +8,9 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
+const sess_key = process.env.sess_key;
+const sess_key2 = process.env.sess_key2;
+const sess_key3 = process.env.sess_key3;
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -34,7 +37,7 @@ app.use(
 
 app.use(cookieSession({
   name: "session",
-  keys: ["user_id", "email", "password"],
+  keys: [sess_key, sess_key2, sess_key3],
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
@@ -50,6 +53,10 @@ const favouriteRoutes = require("./routes/favourites");
 const contributionRoutes = require("./routes/contributions");
 const createMapRoutes = require("./routes/createMap");
 // const indexRoutes = require("./routes/index");
+const mainpageRoutes = require("./routes/mainpage");
+const viewMapRoutes = require("./routes/viewMap");
+const markerRoutes = require("./routes/markers");
+const mapsRoutes = require("./routes/maps");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -59,6 +66,10 @@ app.use("/favourites", favouriteRoutes(db));
 app.use("/contributions", contributionRoutes(db));
 app.use("/createMap", createMapRoutes(db));
 // app.use("/index", indexRoutes(db));
+app.use("/mainpage", mainpageRoutes(db));
+app.use("/viewMap", viewMapRoutes(db));
+app.use("/markers", markerRoutes(db));
+app.use("/api/maps", mapsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -68,6 +79,10 @@ app.use("/createMap", createMapRoutes(db));
 app.get("/", (req, res) => {
   const userID = req.query.userID;
   req.session["user_id"] = userID;
+  if (req.session["user_id"]) {
+    console.log(req.session["user_id"]);
+    res.redirect("/mainpage");
+  }
   // req.session.userID
   res.render("index");
 });

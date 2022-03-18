@@ -6,6 +6,6 @@ CREATE TABLE markers (
   image_url VARCHAR(255) NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE,
-  latitude INTEGER NOT NULL,
-  longitude INTEGER NOT NULL
+  latitude DECIMAL NOT NULL,
+  longitude DECIMAL NOT NULL
 );
