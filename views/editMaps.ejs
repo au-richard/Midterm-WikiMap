@@ -31,8 +31,8 @@
 <body id="Edit-marker">
   <%- include('partials/_header') %>
       <h1>Create Or Edit marker</h1>
-      <% for(let map in maps) { %>
-      <form method="POST" action="/markers/add/<%= maps[map].id%>" id="markerEditF">
+
+      <form method="POST" action="/markers/add/<%= maps%>" id="markerEditF">
         <label for="title"><Marker Name></label>
         <br>
         <input id="marker-title" type="text" name="title" placeholder="Enter A Marker title" required>
@@ -55,7 +55,7 @@
         <br>
         <button type="submit" class="btn btn-success">Create</button>
       </form>
-      <% } %>
+
   </body>
     <!-- bootstrap js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
