@@ -53,6 +53,7 @@ const favouriteRoutes = require("./routes/favourites");
 const contributionRoutes = require("./routes/contributions");
 const createMapRoutes = require("./routes/createMap");
 // const indexRoutes = require("./routes/index");
+ const mainPageRoutes = require("./routes/mainpage");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -62,6 +63,7 @@ app.use("/favourites", favouriteRoutes(db));
 app.use("/contributions", contributionRoutes(db));
 app.use("/createMap", createMapRoutes(db));
 // app.use("/index", indexRoutes(db));
+app.use("/mainpage", mainPageRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -71,6 +73,10 @@ app.use("/createMap", createMapRoutes(db));
 app.get("/", (req, res) => {
   const userID = req.query.userID;
   req.session["user_id"] = userID;
+  if (req.session["user_id"]) {
+    console.log(req.session["user_id"]);
+    res.redirect("/mainpage")
+  }
   // req.session.userID
   res.render("index");
 });

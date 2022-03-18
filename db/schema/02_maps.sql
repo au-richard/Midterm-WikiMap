@@ -4,5 +4,6 @@ CREATE TABLE maps (
   title VARCHAR(255) NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   latitude FLOAT NOT NULL,
-  longitude FLOAT NOT NULL
+  longitude FLOAT NOT NULL,
+  active_map BOOLEAN DEFAULT TRUE
 );
