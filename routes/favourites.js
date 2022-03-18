@@ -18,6 +18,22 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/add/:id", (req, res) => {
+    const mapID = req.params.id;
+    const userID = req.session["user_id"];
+    console.log("added to favourite user id", userID)
+    console.log("map ID", mapID);
+    console.log("req body", req.body);
+
+    db.query(`INSERT INTO favourites (user_id, map_id) VALUES ($1, $2) RETURNING *;`, [userID, mapID])
+      .then(data => {
+        const favourites = data.rows;
+        console.log("fave", favourites);
+        res.redirect("/favourites");
+      });
+
+
+  });
   router.post("/:id/delete", (req, res) => {
     const mapID = req.params.id;
     console.log("map ID", mapID);
