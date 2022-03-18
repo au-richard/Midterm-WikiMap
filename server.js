@@ -8,6 +8,9 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
+const sess_key = process.env.sess_key;
+const sess_key2 = process.env.sess_key2;
+const sess_key3 = process.env.sess_key3;
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -34,7 +37,7 @@ app.use(
 
 app.use(cookieSession({
   name: "session",
-  keys: ["user_id", "email", "password"],
+  keys: [sess_key, sess_key2, sess_key3],
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
