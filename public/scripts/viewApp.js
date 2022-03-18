@@ -4,12 +4,13 @@ $(document).ready(function (){
   let map_id = $('meta[name=map_id]').attr('content');
   let mlat = 49.2827;
   let mlongi = -123.1207;
+  /*
   $.get(`/api/maps/${map_id}`, function(res) {
     mlat = res.coords.latitude;
     mlongi = res.coords.longitude;
 
   })
-
+*/
   let map = L.map('map').setView([mlat,mlongi], 13);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

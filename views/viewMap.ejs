@@ -42,7 +42,7 @@
           <form method="POST" action="/favourites/add/<%= maps[map].id %>">
             <button type="submit" id="btnSubmit" class="btn btn-primary">Favourite</button>
           </form>
-          <form method="POST" action="/EDIT/<%= maps[map].id %>">
+          <form method="GET" action="/markers/edit/<%= maps[map].id %>">
             <button type="submit" id="btnSubmit" class="btn btn-success">EDIT</button>
           </form>
           <form method="POST" action="/viewMap/delete/<%= maps[map].id %>">

@@ -53,7 +53,7 @@ const favouriteRoutes = require("./routes/favourites");
 const contributionRoutes = require("./routes/contributions");
 const createMapRoutes = require("./routes/createMap");
 // const indexRoutes = require("./routes/index");
-const mainPageRoutes = require("./routes/mainpage");
+const mainpageRoutes = require("./routes/mainpage");
 const viewMapRoutes = require("./routes/viewMap");
 const markerRoutes = require("./routes/markers");
 const mapsRoutes = require("./routes/maps");
@@ -66,7 +66,7 @@ app.use("/favourites", favouriteRoutes(db));
 app.use("/contributions", contributionRoutes(db));
 app.use("/createMap", createMapRoutes(db));
 // app.use("/index", indexRoutes(db));
-app.use("/mainpage", mainPageRoutes(db));
+app.use("/mainpage", mainpageRoutes(db));
 app.use("/viewMap", viewMapRoutes(db));
 app.use("/markers", markerRoutes(db));
 app.use("/api/maps", mapsRoutes(db));
@@ -81,7 +81,7 @@ app.get("/", (req, res) => {
   req.session["user_id"] = userID;
   if (req.session["user_id"]) {
     console.log(req.session["user_id"]);
-    res.redirect("/mainpage")
+    res.redirect("/mainpage");
   }
   // req.session.userID
   res.render("index");
