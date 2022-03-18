@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mbox_key" content="<%= process.env.mBox_key %>">
+  <meta name="map_id" content="<%= maps[0].id %>">
 
   <!-- leaflet css-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -34,8 +35,8 @@
 
       <section class="map-display">
         <h1 id="map-title"><%= maps[map].title %></h1>
-        <div id="mapID"><%= maps[map].id %></div>
-        <div id="mapUser_id" content="<%= user.userID %>"><%= user.userID %></div>
+        <div id="mapID" data-map-id="<%= maps[map].id %>"><%= maps[map].id %></div>
+        <div id="maps_id" content="<%= user.userID %>"><%= user.userID %></div>
         <div id="map"></div>
         <div id="map-btns">
           <form method="POST" action="/favourites/add/<%= maps[map].id %>">
@@ -44,8 +45,8 @@
           <form method="POST" action="/EDIT/<%= maps[map].id %>">
             <button type="submit" id="btnSubmit" class="btn btn-success">EDIT</button>
           </form>
-          <form method="POST" action="/delete/<%= maps[map].id %>">
-            <button type="submit" id="btnSubmit" class="btn btn-danger">View</button>
+          <form method="POST" action="/viewMap/delete/<%= maps[map].id %>">
+            <button type="submit" id="btnSubmit" class="btn btn-danger">DELETE</button>
           </form>
         </div>
       </section>
