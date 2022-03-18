@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/favourites.css" type="text/css" />
+  <script type="text/javascript" src="/routes/favourites.js"></script>
+
+  <title>My Favourites</title>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+    <main>
+      <section id="favourite-list">
+        <div class="favourites-header">
+          <h1>My Favourites</h1>
+          <h5>Total Number of Favourites: <%= favourites.length %>
+          </h5>
+        </div>
+        <% for(let fave of favourites) { %>
+          <div class="favourites-table">
+            <h5>
+              <a class="nav-item nav-link" href=" ">
+                <%= fave.title %>
+              </a>
+            </h5>
+            <form method="POST" action="/favourites/<%= fave.id %>/delete">
+              <button id="delete-favourite" type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+          <% } %>
+      </section>
+    </main>
+</body>
+
+</html>

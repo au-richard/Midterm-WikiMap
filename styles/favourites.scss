@@ -1,0 +1,19 @@
+body {
+  background-color: #702dbd;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+}
+
+.favourites-header {
+  margin-left: 0.8em;
+}
+
+.favourites-table {
+  display: flex;
+  // align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+#delete-favourite {
+  margin-right: 10em;
+}

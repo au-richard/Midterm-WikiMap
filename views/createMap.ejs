@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/createMap.css" type="text/css" />
+  <script type="text/javascript" src="/routes/createMap.js"></script>
+
+  <title>Create A Map</title>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+    <h1>Create A Map</h1>
+    <form method="POST" action="/createMap">
+      <label for="mapName">Map Name</label>
+      <br>
+      <input id="map-title" type="text" name="title" placeholder="Enter A Map Name" required>
+      <br>
+      <label for="map-latitude">Latitude:</label>
+      <br>
+      <input id="map-latitude" input type="number" step="any" name="latitude" placeholder="Enter Latitude" required>
+      <br>
+      <label for="map-longitude">Longitude:</label>
+      <br>
+      <input id="map-longitude" input type="number" step="any" name="longitude" placeholder="Enter Longitude" required>
+      <br>
+      <button type="submit" class="btn btn-success">Create</button>
+    </form>
+</body>
+
+</html>

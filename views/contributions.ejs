@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/contributions.css" type="text/css" />
+  <script type="text/javascript" src="/routes/contributions.js"></script>
+
+  <title>My Contributions</title>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+    <main>
+
+      </h5>
+      <section id="contribution-list">
+        <div class="contributions-header">
+          <h1>My Contributions</h1>
+          <h5 id="num-contributions">Total Number of Contributions: <%= contributions.length %>
+        </div>
+        <div class="maps-contributed-to">
+          <u>
+            <h3>Map Contributed To</h3>
+          </u>
+        </div>
+        <!-- <table>
+          <thead>
+            <u>
+              <th class="left-space">Map Contributed To</th>
+            </u>
+          </thead>
+          <tbody> -->
+        <% for(let contrib of contributions) { %>
+          <div class="contributions-table">
+            <h5>
+              <!-- nav-item nav-link -->
+              <a class="nav-item nav-link" href=" ">
+                <%= contrib.title %>
+              </a>
+            </h5>
+          </div>
+          <!-- <tr>
+                <td>
+                  <a class="nav-item nav-link" href=" ">
+                    <%= contrib.title %>
+                  </a>
+                </td>
+              </tr> -->
+          <% } %>
+            </tbody>
+            </table>
+      </section>
+    </main>
+</body>
+
+</html>
